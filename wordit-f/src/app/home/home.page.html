@@ -1,0 +1,37 @@
+<div>
+  <form [formGroup]="wordForm">
+
+    <div>
+      <label>Choose a word type:</label>
+      <select formControlName="word_type" name="word_type" id="word_type">
+        <option *ngFor="let item of Word_type" value="{{item.type}}">{{item.type}}</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Choose a word:</label>
+      <select formControlName="word" name="word" id="word">
+        <option *ngFor="let item of Word_catlog" value="{{item.description}}">{{item.description}}</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Sentence:</label>
+      <input type="text" formControlName="sentence" readonly />
+    </div>
+
+    <div>
+      <button type="button" (click)="add_sentence();">save</button>
+      &nbsp;
+      <button type="button" (click)="clear_sentence();">clear</button>
+    </div>
+
+    <div>
+      <label>Suggested Sentences :</label>
+      <ul>
+        <li *ngFor="let item of Sentence">{{item.description}}</li>
+      </ul>
+    </div>
+
+  </form>
+</div>
